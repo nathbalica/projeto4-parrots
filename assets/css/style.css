@@ -96,3 +96,36 @@ li.turn .card{
 .no-pointer-event{
     pointer-events: none;
 }
+
+.table-4{
+    width: 300px;
+}
+
+.table-6{
+    width: 450px;
+}
+.table-8{
+    width: 580px;
+}
+.table-10{
+    width: 700px;
+}
+.table-12{
+    width: 810px;
+}
+.table-14{
+    width: 930px;
+}
+
+#clock{
+    display: none;
+}
+
+#elapsedTime {
+    font-size: 50px;
+    color: #75B79E;;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }

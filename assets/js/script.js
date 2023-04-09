@@ -3,12 +3,72 @@ let qtdCard;
 let firstCard, secondCard;
 let rounds = 0;
 let rightMoves = 0;
+let startTime = 0;
+let elapsedTimeInSeconds = 0;
+let timerEnd = false;
 
 const gifsImg = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
 
+function restartGame() {
+  
+  
+
+  let playAgain = prompt("Gostaria de reiniciar a partida? (sim/não)")
+  const denyAnswers = ["sim", "não"]
+  
+  while (!denyAnswers.includes(playAgain.toLowerCase())) {
+    playAgain = prompt("Por favor, responda apenas com 'sim' ou 'não'. Gostaria de reiniciar a partida?")
+  }
+  
+  if (playAgain.toLowerCase() === "sim") {
+    cards = [];
+    qtdCard = undefined;
+    firstCard, secondCard = undefined;
+    rounds = 0;
+    rightMoves = 0;
+
+    const board = document.querySelector(".board");
+    board.innerHTML = "";
+
+    play();
+  } else {
+    timerEnd = true;
+    alert("Obrigado por jogar!")
+  }
+}
+
+function startClock() {
+  const clockElement = document.getElementById("clock");
+  
+  function updateClock() {
+    if (timerEnd) {
+      clearInterval(intervalId);
+      return;
+    }
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    clockElement.textContent = timeString;
+
+    elapsedTimeInSeconds = Math.round((now.getTime() - startTime.getTime()) / 1000);
+    const elapsedTimeString = `${elapsedTimeInSeconds}`;
+    document.getElementById("elapsedTime").textContent = elapsedTimeString;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+}
+
+
 function checkEnd() {
   if (rightMoves === qtdCard) {
-    alert(`Você ganhou em ${rounds} jogadas!`);
+    const endTime = new Date();
+    const elapsedTimeInSeconds = Math.round((endTime.getTime() - startTime.getTime()) / 1000);
+    setTimeout(function() {
+      alert(`Você ganhou em ${rounds} jogadas! A duração do jogo foi de ${elapsedTimeInSeconds} segundos!`);
+      restartGame();
+    }, 500); // atrasa a exibição da mensagem em 500ms
   }
 }
 
@@ -59,6 +119,7 @@ function createCards() {
 
 function insertCards() {
   const board = document.querySelector(".board");
+  startTime = new Date();
 
   for (let gif = 0; gif < cards.length; gif++) {
     let cardsList = `
@@ -84,7 +145,7 @@ function inputUser() {
   while (qtdCard % 2 !== 0 || qtdCard > 14 || qtdCard < 4) {
     qtdCard = parseInt(prompt("Com quantas cartas quer jogar?"));
   }
-
+  document.querySelector('.board').classList.add(`table-${qtdCard}`);
 }
 
 function backFlip(card) {
@@ -104,11 +165,12 @@ function backFlip(card) {
 
 }
 
-function main(){
+function play(){
   inputUser();
   createCards();
   insertCards();
-
+  startClock();
 }
 
-main()
+play();
+
