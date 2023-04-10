@@ -13,7 +13,7 @@ function restartGame() {
   
   
 
-  let playAgain = prompt("Gostaria de reiniciar a partida? (sim/não)")
+  let playAgain = prompt("Você gostaria de reiniciar a partida? (sim ou não)")
   const denyAnswers = ["sim", "não"]
   
   while (!denyAnswers.includes(playAgain.toLowerCase())) {
