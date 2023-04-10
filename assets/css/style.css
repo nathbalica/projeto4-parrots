@@ -130,7 +130,7 @@ li.turn .card{
     padding: 10px;
   }
 
-@media (max-width: 335px){
+@media (max-width: 614px){
     header{
         margin-top: 10%;
         align-items: center;
@@ -155,7 +155,7 @@ li.turn .card{
     } 
 }
 
-@media (min-width: 336px) and (max-width: 945px){
+@media (min-width: 615px) and (max-width: 945px){
     header{
         margin: 50px 0;
         align-items: center;
@@ -169,7 +169,7 @@ li.turn .card{
         display: flex;
     }
     #elapsedTime{
-        font-size: 20px;
+        font-size: 40px;
     }
 
     ul, .table-4, 
