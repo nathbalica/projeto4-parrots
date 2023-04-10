@@ -123,13 +123,13 @@ function insertCards() {
 
   for (let gif = 0; gif < cards.length; gif++) {
     let cardsList = `
-      <li class="card-complete" onclick="backFlip(this)">
+      <li data-test="card" class="card-complete" onclick="backFlip(this)">
         <div class="card">
             <div class="front">
-                <img src="./assets/images/back.png">
+                <img data-test="face-down-image" src="./assets/images/back.png">
             </div>
             <div class="back">
-                <img src="./assets/images/${cards[gif]}.gif">
+                <img data-test="face-up-image" src="./assets/images/${cards[gif]}.gif">
             </div>
         </div>
       </li>
