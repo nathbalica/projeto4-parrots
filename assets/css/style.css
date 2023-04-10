@@ -129,3 +129,56 @@ li.turn .card{
     right: 0;
     padding: 10px;
   }
+
+@media (max-width: 335px){
+    header{
+        margin-top: 10%;
+        align-items: center;
+
+    }
+    header h1{
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 42px;
+    }
+    #elapsedTime{
+        font-size: 20px;
+    }
+
+    ul, .table-4, 
+    .table-6 .table-8, 
+    .table-10, .table-12, 
+    .table-14{    
+        width: 200px;
+        align-items: center;
+        justify-content: center;
+    } 
+}
+
+@media (min-width: 336px) and (max-width: 945px){
+    header{
+        margin: 50px 0;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    header h1{
+        width: 450px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+    }
+    #elapsedTime{
+        font-size: 20px;
+    }
+
+    ul, .table-4, 
+    .table-6 .table-8, 
+    .table-10, .table-12, 
+    .table-14{    
+        width: 300px;
+    }
+    card-complete:last-child{
+        margin-right: 0;
+    }
+}
