@@ -13,7 +13,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🚀 Resultado
 
-- Aplicar layout para desktop e mobile, seguindo o Figma..
+- Aplicar layout para desktop e mobile, seguindo o Figma...
 **Desktop**
 <p align="center">
 <img src="./assets/images/layoutparrot.png"/>
